@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "darkerer",
+  "description": "darken stuff",
+  "version": "1.0",
+  "icons": {
+    "16": "space-monkey.png",
+    "48": "space-monkey.png",
+    "128": "space-monkey.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.npmjs.com/*",
+        "https://stackoverflow.com/*",
+        "https://developer.zendesk.com/*",
+        "https://*.awsapps.com/*"
+      ],
+      "exclude_matches": [],
+      "js": ["darkerer.js"]
+    }
+  ],
+  "action": {
+    "default_icon": "space-monkey.png",
+    "default_popup": "nope.html"
+  },
+
+  "background": {
+    "service_worker": "nope.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "storage"]
+}
